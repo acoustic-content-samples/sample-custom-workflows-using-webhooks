@@ -43,7 +43,7 @@ This example implements a monthly check of content and assets. This model can ea
 - Select a board and the TODO list.
 - Set a card title such as "Check `<docName>`" where docName is a variable from the webhook - the content name.
 - set a card description such as 
-"Go to `https://wch-dev.au.ibm.com/#/Authoring/Content/All-Content-And-Assets/Edit/?contentId=<docId>` and check the content for currency" where docId is a variable from the webhook
+"Go to `https://www.customer-engagement.ibm.com/content-hub/Authoring/Content/All-Content-And-Assets/Edit/?contentId=<docId>` and check the content for currency" where docId is a variable from the webhook
 - the content Id. 
 - Select other options such as the label color, member (the user who owns the Trello action) and due date.
 
@@ -53,7 +53,7 @@ You're done! Give it a test.
 
 As already mentioned, this example could be adapted to create any other kind of notification, or to apply any other type of time-based check or expiry. 
 
-Implementing an automated callback into WCH is possible. For example, to expire content. For this, you will need to implement a Code step that will authenticate to the WCH Authoring APIs and then use the Rest APIs to make the desired changes. Check out the sample https://github.com/ibm-wch/sample-article-create to see how to do this. If there is some demand, I can spend some time doing a simple example of that in Zapier. 
+Implementing an automated callback into WCH is possible. For example, to expire content. For this, you will need to implement a Code step that will authenticate to the WCH Authoring APIs and then use the Rest APIs to make the desired changes. Check out the sample hhttps://github.com/ibm-wch/sample-custom-workflows-using-webhooks/sample-article-create to see how to do this. If there is some demand, I can spend some time doing a simple example of that in Zapier. 
 
 ## Go back to see all the custom workflow using webhooks tutorials
 
