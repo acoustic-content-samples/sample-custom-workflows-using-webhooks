@@ -41,7 +41,7 @@ Zapier converts the docApprovers field from an object in JSON to a string with p
 - Set the body field as:
 
 `"A Review had been requested for <docName>
-<a href="https://wch-dev.au.ibm.com/#/Content/My-Work">Click here</a> to review the items."` 
+<a href="https://www.customer-engagement.ibm.com/content-hub/Content/My-Work">Click here</a> to review the items."` 
 where the property docName comes from the previous Code step. 
 
 And, you're done. Turn on your Zap, and give it a test!
