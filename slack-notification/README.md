@@ -61,3 +61,7 @@ And, you're done. Turn on the Zap and give it a test!
 
 The sample shows how to send all WCH events within a hub to a fixed Slack channel. It's not difficult to customise this to send the events to different channels based on the classification or tags applied to a given item. It's also possible to have an action button in slack notifications. These could be used to perform actions back in the Hub
 such as approve content items.
+
+## Go back to see all the custom workflow using webhooks tutorials
+
+Back: https://github.com/ibm-wch/sample-custom-workflows-using-webhooks
