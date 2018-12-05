@@ -16,19 +16,19 @@ It's also possible to use a no-code or low-code cloud platforms such as Zapier, 
 
 ## Create Slack notification when items are updated
 
-See: https://github.ibm.com/DX/sample-webhooks/tree/master/slack-notification
+See: https://github.com/ibm-wch/sample-custom-workflows-using-webhooks/tree/master/slack-notification
 
 ## Send an email to the approvers when a review is created
 
-See: https://github.ibm.com/DX/sample-webhooks/tree/master/email-notification
+See: https://github.com/ibm-wch/sample-custom-workflows-using-webhooks/tree/master/email-notification
 
 ## Create a Trello card to translate a content item
 
-See: https://github.ibm.com/DX/sample-webhooks/tree/master/trello-card
+See: https://github.com/ibm-wch/sample-custom-workflows-using-webhooks/tree/master/trello-card
 
 ## Check or expire content or assets on a schedule
 
-See: https://github.ibm.com/DX/sample-webhooks/tree/master/check-expire-content
+See: https://github.com/ibm-wch/sample-custom-workflows-using-webhooks/tree/master/check-expire-content
 
 ## Going further
 
