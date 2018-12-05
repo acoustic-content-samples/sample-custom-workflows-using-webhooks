@@ -31,7 +31,7 @@ Zapier should detect the webhook and make the data from the webhook available fo
 - Select a board and the TODO list.
 - Set a card title such as "Translate `<docName>` into French" where docName is a variable from the webhook - the content name.
 - set a card description such as 
-"Go to `https://wch-dev.au.ibm.com/#/Authoring/Content/All-Content-And-Assets/Edit/?contentId=<docId>`.
+"Go to `https://www.customer-engagement.ibm.com/content-hub/Authoring/Content/All-Content-And-Assets/Edit/?contentId=<docId>`.
 - Translate the content into French" where docId is a variable from the webhook.
 - the content Id. 
 - Select other options such as the label color, member (the user who owns the Trello action) and due date.
@@ -50,3 +50,7 @@ You could use the Send notification example in this repo to also send an email t
 Other parts of the translation workflow could be automated in the same way. For example, when all the translations are completed, a Trello card could be created to initiate an approval workflow or publish all of the items. That could happen manually in the WCH Hub, or the WCH APIs could be used to make that happen automatically. 
 
 In this way, you can build a fully flexible translation workflow based on your companies processes and tools.
+
+## Go back to see all the custom workflow using webhooks tutorials
+
+Back: https://github.com/ibm-wch/sample-custom-workflows-using-webhooks
