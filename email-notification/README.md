@@ -31,7 +31,7 @@ Zapier should detect the webhook and make the data from the webhook available fo
 `var emailAddress = inputData.docApprovers.split("\n")[0].split(" ")[1];
 output = [{emailAddress: emailAddress, docName: inputData.docName}];`
 
-Zapier converts the docApprovers field from an object in JSON to a string with properties separated by a new line and the keys and values separated by a space. The code parses that string to get the email address out. There doesn't seem to be a way to get the original JSON from the webhook. This is an example of where Zapier feels much more awkward than using the IBM Cloud and just writing code. Extracting all of the approvers (in case there are multiple) would be more awkward again. Once things get more complicated, using a coded solution such as the IBM Cloud rather than a low-code solution like Zapier is going to be more efficient for those with access to a developer.
+TODO - By default the Zapier webhook catch step converts the docApprovers field from an object in JSON to a string with properties separated by a new line and the keys and values separated by a space. The code above parses that string to get the email address out. A better approach would be select the option 'Raw hook' to catch the webhook so that the raw JSON is provided by the catch webhook step. The email address can then be extracted using simple traversal of the JSON.
 
 ### Add a send email step
 
