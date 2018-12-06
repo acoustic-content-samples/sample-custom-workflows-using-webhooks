@@ -30,10 +30,8 @@ Zapier should detect the webhook and make the data from the webhook available fo
 - Connect Zapier to your Trello account. 
 - Select a board and the TODO list.
 - Set a card title such as "Translate `<docName>` into French" where docName is a variable from the webhook - the content name.
-- set a card description such as 
-"Go to `https://www.customer-engagement.ibm.com/content-hub/Authoring/Content/All-Content-And-Assets/Edit/?contentId=<docId>`.
-- Translate the content into French" where docId is a variable from the webhook.
-- the content Id. 
+- Set a card description such as 
+"Go to `https://www.customer-engagement.ibm.com/content-hub/Authoring/Content/All-Content-And-Assets?bookmark=%2FAuthoring%2FContent%2FAll-Content-And-Assets%2FEdit%2F%3FcontentId%3D<docId>` and translate the content into French." where docId is a variable from the webhook - the content Id. 
 - Select other options such as the label color, member (the user who owns the Trello action) and due date.
 
 ### Add the step to create a Trello card for the German translation
