@@ -10,7 +10,7 @@ https://www.ibm.com/support/knowledgecenter/SS3UMF/wch_q_a_watson_assistant/webh
 
 To make use of WCH Webhooks, you need a Webhook consumer. The consumer listens for webhook events and performs an action based on those events. For complete custom control and flexibility, the webhook consumer can be a service running on a cloud provider such as the IBM Cloud, Amazon AWS, Microsoft Azure, or Google GCP. These options require a developer who can build and deploy a service, such as a JavaScript node app.
 
-It's also possible to use a no-code or low-code cloud platforms such as Zapier, Tray.io, or IFTTT. Of those, IFTT is more consumer electronic-focussed, so is perhaps not the best fit. Zapier has a free plan and is the easiest of all these options to get started. For that reason, the following examples use Zapier. Be aware however that the Code steps in Zapier don't allow you to include arbitrary imports. This means, for instance, that it's not possible to verify the WCH webhook secret to ensure that the webhook came from WCH rather than a malicious actor. It also does not allow for exporting or version control of the Zaps. For a more robust solution, therefore, Tray.io or a cloud platform will be a better approach.
+It's also possible to use a no-code or low-code cloud platforms such as Zapier, Tray.io, or IFTTT. Zapier has a free plan, is the easy to get started, and is specifically designed for system integration. For that reason, the following examples use Zapier.
 
 ## Demo videos
 
