@@ -12,6 +12,10 @@ To make use of WCH Webhooks, you need a Webhook consumer. The consumer listens f
 
 It's also possible to use a no-code or low-code cloud platforms such as Zapier, Tray.io, or IFTTT. Of those, IFTT is more consumer electronic-focussed, so is perhaps not the best fit. Zapier has a free plan and is the easiest of all these options to get started. For that reason, the following examples use Zapier. Be aware however that the Code steps in Zapier don't allow you to include arbitrary imports. This means, for instance, that it's not possible to verify the WCH webhook secret to ensure that the webhook came from WCH rather than a malicious actor. It also does not allow for exporting or version control of the Zaps. For a more robust solution, therefore, Tray.io or a cloud platform will be a better approach.
 
+## Demo videos
+
+Demo videos are here https://youtu.be/T4x-y4IfMFA and https://youtu.be/2OgPEyh7XvE.
+
 ## Create Slack notification when items are updated
 
 See: https://github.com/ibm-wch/sample-custom-workflows-using-webhooks/tree/master/slack-notification
