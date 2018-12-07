@@ -43,7 +43,7 @@ This example implements a monthly check of content and assets. This model can ea
 - Select a board and the TODO list.
 - Set a card title such as "Check `<docName>`" where docName is a variable from the webhook - the content name.
 - set a card description such as 
-"Go to `https://www.customer-engagement.ibm.com/content-hub/Authoring/Content/All-Content-And-Assets?bookmark=%2FAuthoring%2FContent%2FAll-Content-And-Assets%2FEdit%2F%3FcontentId%3D<docId><docId>` and check the content for currency." where docId is a variable from the webhook - the content ID. 
+"Go to `https://www.customer-engagement.ibm.com/content-hub/Authoring/Content/All-Content-And-Assets?bookmark=%2FAuthoring%2FContent%2FAll-Content-And-Assets%2FEdit%2F%3FcontentId%3D<docId>` and check the content for currency." where docId is a variable from the webhook - the content ID. 
 - Select other options such as the label color, member (the user who owns the Trello action) and due date.
 
 You're done! Give it a test. 
