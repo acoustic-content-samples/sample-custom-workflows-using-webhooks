@@ -1,6 +1,6 @@
 # Creating custom workflows using WCH Webhooks
 
-These days, the workflow for managing content in different channels can involve multiple systems. Content can be created in WCH and translated in a translation tool. You can upload an asset to WCH and then use a cognitive system to add metadata. Approvals can be multi-levelled and managed by using a task management tool such as Trello. Notification of events and user collaboration can be sent using Slack, email, or mobile push notifications. In other words, content management in WCH is part of a larger workflow. WCH Webhooks can help you deliver this extended workflow to other systems.
+These days, the workflow for managing content in different channels can involve multiple systems. Content can be created in WCH and translated in a translation tool. You can upload an asset to WCH and then use a cognitive system to add metadata. Approvals can be multi-levelled and managed by using a task management tool such as Trello or Microsoft Flow. Notification of events and user collaboration can be sent using Slack, email, or mobile push notifications. In other words, content management in WCH is part of a larger workflow. WCH Webhooks can help you deliver this extended workflow to other systems.
 
 This repo contains tutorials that make use of WCH Webhooks to demonstrate how to set up some common custom workflows. 
 
