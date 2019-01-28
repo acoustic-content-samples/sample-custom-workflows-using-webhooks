@@ -1,6 +1,6 @@
 # Create a Trello card to translate a content item
 
-This is a tutorial about setting up Zapier to send an email to add a Trello card when a translator needs to translate some content.
+This is a tutorial about setting up Zapier to send an email to add a Trello card when a translator needs to translate some content. For background information on all the tutorials, see: https://github.com/ibm-wch/sample-custom-workflows-using-webhooks.
 
 ## Create a Zap.
 
@@ -8,6 +8,8 @@ The Zap uses three steps.
 - The first step catches the webhook. 
 - The second step creates a Trello card to add a TODO for the French translator to translate the new item into French. 
 - The third step does the same for German.
+
+Create a new Zap and name it something like 'Send translation email'.
 
 ### Catch the webhook
 
