@@ -1,6 +1,6 @@
 # Create Slack notification when items are updated
 
-This is a tutorial on setting up Zapier to listen to WCH webhook events and to send a Slack notification.
+This is a tutorial on setting up Zapier to listen to WCH webhook events and to send a Slack notification. For background information on all the tutorials, see: https://github.com/ibm-wch/sample-custom-workflows-using-webhooks.
 
 ## Create a Slack app.
 
