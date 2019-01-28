@@ -23,6 +23,8 @@ The Zap uses three steps.
 - The second step extracts some fields from the webhook and puts them into a JSON structure expected by Slack. 
 - The third step sends an outbound webhook onto Slack. 
 
+Create a new Zap and name it something like 'Send slack notification'.
+
 ### Catch the webhook
 
 - Create a webhook step in Zapier. 
