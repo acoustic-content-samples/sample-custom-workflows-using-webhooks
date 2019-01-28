@@ -1,6 +1,6 @@
 # Send an email to the approvers when a review is created
 
-This is a tutorial about setting up Zapier to send an email to the review approvers when a review is created.
+This is a tutorial about setting up Zapier to send an email to the review approvers when a review is created. For background information on all the tutorials, see: https://github.com/ibm-wch/sample-custom-workflows-using-webhooks.
 
 ## Create a Zap.
 
@@ -8,6 +8,8 @@ The Zap uses three steps.
 - The first step catches the webhook. 
 - The second step is a Code step that extracts the date we need from the  JSON in the webhook, in particular, the approver's email address. 
 - The third step sends an email to the approver. 
+
+Create a new Zap and name it something like 'Send review email'.
 
 ### Catch the webhook
 
