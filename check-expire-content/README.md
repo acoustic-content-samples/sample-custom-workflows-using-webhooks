@@ -51,7 +51,7 @@ Note that delay here could be based on properties of the content item or asset o
 "Go to `https://www.customer-engagement.ibm.com/content-hub/Authoring/Content/All-Content-And-Assets?bookmark=%2FAuthoring%2FContent%2FAll-Content-And-Assets%2FEdit%2F%3FcontentId%3D<docId>` and check the content for currency." where docId is a variable from the Webhook - the content ID. 
 - Select other options such as the label color, member (the user who owns the Trello action) and due date.
 
-Alternatively, a different notification method, or multiple notifications could be sent here, or a Code step used to send API requests back to the WCH APIs. For this, you will need to implement a Code step that will authenticate to the WCH Authoring APIs and then use the Rest APIs to make the desired changes. Check out the sample hhttps://github.com/ibm-wch/sample-custom-workflows-using-webhooks/sample-article-create to see how to do this.
+Alternatively, a different notification method, or multiple notifications could be sent here, or a Code step used to send API requests back to the WCH APIs. For this, you will need to implement a Code step that will authenticate to the WCH Authoring APIs and then use the Rest APIs to make the desired changes. Check out the sample https://github.com/ibm-wch/sample-article-create to see how to do this, though also note that WCH intends to release a more convenient way to achieve this, so stay tuned for that.
 
 You're done! Give it a test. 
 
