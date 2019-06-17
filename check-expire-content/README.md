@@ -38,7 +38,7 @@ Create a new Zap and name it something like 'Expiring Content Webhook'.
 - Add a Webhook step to the Zap.
 - Choose to Catch a hook. Copy the URL of the Webhook.
 - In a new browser tab, go to the Webhooks UI in WCH. 
-- Add a Webhook, and paste the copied URL.
+- Add a Webhook and paste the copied URL.
 - Set the filters as event type "Create" and "Update" and item type "Content" and "Assets".
 - Set the tag filter as "ExpiringContent". When the creator or updater of an item wants their item to be automatically expired, they need to add this tag to the item. 
 - Add the Webhook
@@ -62,32 +62,32 @@ Create a new Zap and name it something like 'Expiring Content Webhook'.
 
 ### Add a step to find the previous Trello card
 
-- Create a new Zappier **Find Card** Trello step.
+- Create a new Zapier **Find Card** Trello step.
 - Query the same Board, List and Card Name. The Card Name should be an available field from step 2. 
 
 ### Add a step to move the card to the Expired list
 
-- Create a new Zappier **Move Card to List** Trello step.
+- Create a new Zapier **Move Card to List** Trello step.
 - The correct Board, From List and To List should all be available via dropdowns. 
 - To pick the correct Card, set the dropdown to **Use a Custom Value**
 - Then the correct Card should be available from the previous search step. 
 
 ### Add a step to send an authenticated request back to WCH to Retire the content
 
-- Create a new Zappier **Webhooks** step, selecting **Post** as the option. 
+- Create a new Zapier **Webhooks** step, selecting **Post** as the option. 
 - The request only needs to include:
   - the correct URL
-  - your WCH authenication credentials **(see note on security below)**
+  - your WCH authentication credentials **(see note on security below)**
   - Payload Type set to JSON
 - The URL should be of the form *\<API URL\>\<Retire URL from step 1\>*
   - The Base Authoring URL of your request can be retrieved from your WCH account. See **Hub Information -> API URL**
   - The Retire URL was included in the Webhook from Step 1 and should be available as a field
-- Your WCH authentication will be entred under the **Basic Auth** section. This should take either the form `<username>|<password>` or `apikey|<api key value>`
+- Your WCH authentication will be entered under the **Basic Auth** section. This should take either the form `<username>|<password>` or `apikey|<api key value>`
 -----
 
 #### Note on Security
 
-In this example, we are entering Authentication information in plain text into the Zapier product, which would be visible to anyone with access to your Zapier account. This approach is **NOT** advised for anything beyond testing and learning. At this time, Zapier does not appear to provide a means of storing private account information to be used in Zap fields. A more secure approach may become available in future as either a native Zapier feature or WCH integration. 
+In this example, we are entering Authentication information in plain text into the Zapier product, which would be visible to anyone with access to your Zapier account. This approach is to demonstrate what is immediately possible within Zapier or any other 3rd party integration. A more secure approach may become available in future as either a native Zapier feature or WCH integration. 
 
 -----
 You're done! Give it a test. 
