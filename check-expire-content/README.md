@@ -83,18 +83,16 @@ Create a new Zap and name it something like 'Expiring Content Webhook'.
   - The Base Authoring URL of your request can be retrieved from your WCH account. See **Hub Information -> API URL**
   - The Retire URL was included in the Webhook from Step 1 and should be available as a field
 - Your WCH authentication will be entered under the **Basic Auth** section. This should take either the form `<username>|<password>` or `apikey|<api key value>`
------
+
+You're done! Give it a test. 
 
 #### Note on Security
 
-In this example, we are entering Authentication information in plain text into the Zapier product, which would be visible to anyone with access to your Zapier account. This approach is to demonstrate what is immediately possible within Zapier or any other 3rd party integration. A more secure approach may become available in future as either a native Zapier feature or WCH integration. 
-
------
-You're done! Give it a test. 
+In this example, we are entering WCH Authentication information in plain text into the Zap, which would be visible to anyone with access to your Zapier account. If this is considered a security issue, an alternative would be to use a "Zapier Integration" which allows the creator of the Zap that uses the integration to enter Authentication information that is then stored in a secure manner. Alternatively, use a different webhook consumer such as a service running on the IBM Cloud.
 
 ## Going further
 
-As already mentioned, this example could be adapted to create any other kind of notification, or to apply any other type of time-based check or expiry. 
+As already mentioned, this example could be adapted to create any other kind of notification, or to apply any other type of time-based check or expiry. The example also shows how to update items in WCH based on an custom workflow. This could be used in many other ways, such as to translate WCH content items in a Translation Management Service (TMS) and the push the translations back into WCH.
 
 ## Go back to see all the custom workflow using webhooks tutorials
 
