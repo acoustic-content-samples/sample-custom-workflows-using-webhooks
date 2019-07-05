@@ -92,7 +92,7 @@ In this example, we are entering WCH Authentication information in plain text in
 
 ## Going further
 
-As already mentioned, this example could be adapted to create any other kind of notification, or to apply any other type of time-based check or expiry. The example also shows how to update items in WCH based on an custom workflow. This could be used in many other ways, such as to translate WCH content items in a Translation Management Service (TMS) and the push the translations back into WCH.
+As already mentioned, this example could be adapted to create any other kind of notification, or to apply any other type of time-based check or expiry. The example also shows how to update items in WCH based on an custom workflow. This could be used in many other ways, such as to translate WCH content items in a Translation Management System (TMS) and the push the translations back into WCH.
 
 ## Go back to see all the custom workflow using webhooks tutorials
 
