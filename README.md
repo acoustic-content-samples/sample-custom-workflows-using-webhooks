@@ -6,7 +6,7 @@ This repo contains tutorials that make use of WCH Webhooks to demonstrate how to
 
 WCH Webhooks send messages when an event occurs in WCH. For more background information on Webhooks, see the WCH Webhooks documentation here:
 
-https://www.ibm.com/support/knowledgecenter/SS3UMF/wch_q_a_watson_assistant/webhooks.html
+https://help.goacoustic.com/hc/en-us/articles/360039881833-Creating-custom-workflows-with-webhooks
 
 In particular, note that a user nees to enable the WCH Webhooks UI needs in order to set up WCH Webhooks, and needs to be an admin to do so.
 
