@@ -187,8 +187,66 @@ Only continue if...
         approve_link: [[APPROVE_BY_WEBHOOK_URL]]?id=<1. Doc ID>
         ```
 
-        - `<1. Doc ID>` is the ID from step **Catch the webhook**
-        - `<2. Doc ID>` is the ID from step **add `GET` request for Content Item**
+        - `<1. Doc ID>` is the ID from step **Catch the webhook**.
+        - `<2. Doc ID>` is the ID from step **add `GET` request for Content Item**.
         - `[[APPROVE_BY_WEBHOOK_URL]]` is the unique URL obtained from Zapier in step **Approve review by webhook Zap**. 
 
 - Trello offers so much more during this step, like setting a custom label, card position or due date.
+
+## Synchronize comments for 3 Level workflow Zap.
+
+Create a new Zap and call it 'Synchronize comments for 3 Level workflow'. This Zap provides the ability to synchronize any comments made on the Trello card, with the comments section for Content Item in Acoustic Content user interface. 
+
+This Zap uses three steps:
+- watch for activity in Trello
+- run custom JavaScript
+- send custom `POST` request
+
+### New Activity in Trello
+
+- Add 'Trello' step in Zapier.
+- Select 'New Activity' action.
+- Provide Trello credentials or pick already connected Trello account.
+- Under the 'Customize Activity' select the activity type and board that should be watched. In out case this will be activity of type 'Comment Added to Card' and board '3 Level workflow for images'.
+
+### Extract data from Trello card
+
+- Add 'Code by Zapier' step.
+- Select 'Run JavaScript'.
+- Set the input data. Extract the fields from Trello card that will be needed in the next steps. In this example, we'll extract the fields `<cardDesc>` and `<dataText>`. So, enter `desc` as the input data field name, and select the `Card Desc` variable from the webhook. Repeat this for `Data Text`, calling the variable `text`.
+- Add the following code code:
+
+```js
+const content_id = inputData.desc.split('\n')[0].split(' ')[1];
+const text = inputData.text;
+
+output = {content_id: content_id, text: text};
+```
+
+### Send `POST` request to Acoustic API
+
+- Add 'Webhooks by Zapier' step.
+- Select `Custom Request`.
+- Select the method to `POST`.
+- Set the url to `[[API_URL]]>/authoring/v1/comments`.
+- Provde raw data for the request under the Data section:
+
+    ```
+    {
+        "message": "<2. Text>",
+        "target": {
+            "id": "<2. Content Id>",
+            "classification": "content"
+        }
+    }
+    ```
+
+    - `<2. Text>` is the `text` variable from previous step.
+    - `<2. Content Id>` is the `content_id` variable from previous step.
+
+- add Acoustic Content credentials for the user External Approver under the **Basic Auth** section.
+
+## Synchronize comments for 4 Level workflow Zap.
+
+This Zap is almost exactly the same as the previous one, with the exception of different Trello that should be watched. If you want to synchronize the comments for each custom workflow, you need to create a different Zap for each one of those workflows separately. We'll skip this part for brevity.
+
