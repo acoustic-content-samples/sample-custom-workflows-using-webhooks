@@ -13,6 +13,17 @@ The overall workflow looks like this:
 3. Approver users approves the items.
 4. Content Editor publishes the items once approved.
 
+## Zaps overview
+
+We will use multiple Zaps to handle the entire workflow from start to finish:
+
+- Approve review by webhook
+- Initialize custom workflow
+- Synchronize comments for 3 Level workflow for images
+- Synchronize comments for 4 Level workflow for web site content
+- 3 Level workflow for images
+- 4 Level workflow for web site content
+
 ## Preparation
 
 #### Acoustic Content
@@ -79,7 +90,7 @@ This Zap uses multiple steps:
 
 - Navigate to the Acoustic Content and compose a new content item using of the content types we just created. Let's start with the 'Article (no approval)' content type. Populate the content item with some dummy data and create a new Review. In the Approvers section, pick the External Approver user we created in **Preparation**. 
 
-### Add a code step
+### Extract data from webhook request
 
 - Add 'Code by Zapier' step.
 - Select 'Run JavaScript'.
@@ -185,13 +196,42 @@ Only continue if...
         content_id: <2. Doc ID>
         review_id: <1. Doc ID>
         approve_link: [[APPROVE_BY_WEBHOOK_URL]]?id=<1. Doc ID>
+        preview_link: [[PREVIEW_URL]]/<2. Doc ID>
         ```
 
         - `<1. Doc ID>` is the ID from step **Catch the webhook**.
         - `<2. Doc ID>` is the ID from step **add `GET` request for Content Item**.
         - `[[APPROVE_BY_WEBHOOK_URL]]` is the unique URL obtained from Zapier in step **Approve review by webhook Zap**. 
+        - `[[PREVIEW_URL]]` is the URL pointing to your preview environment. See note below.
+
+        **Note on Preview link**:
+        Depending on your setup, preview link can be different.
+
+        For example, if the articles with ID 1234-5678 appears in the website under /articles/1234-5678 then the preview link could be:
+        `preview.example.com/articles/1234-5678`, which means you need to combine the `preview.example.com/articles/` part with <2. Doc ID> from step **add `GET` request for Content Item**.
 
 - Trello offers so much more during this step, like setting a custom label, card position or due date.
+
+### (Path B - 3 Level workflow for images) - Send Email notification
+
+- Add 'Email by Zapier' step in Zapier.
+- Select 'Send Outbound Email' action.
+- Under the 'Customize Outbound Email' provide the necessary data
+    - **To**: Select '2. Approver Email' from step **Extract data from webhook request**.
+    - **Subject**: Item awaiting approval - `<1. DocName>`.
+    - **Body**: 
+
+        ```
+        Please review this changes:
+        Preview link: [[PREVIEW_URL]]/<2. Doc ID>
+        Approve: [[APPROVE_BY_WEBHOOK_URL]]?id=<1. Doc ID>
+        View in Trello: <Path B - 3. URL>
+        ```
+
+        - `<1. Doc ID>` is the ID from step **Catch the webhook**.
+        - `<2. Doc ID>` is the ID from step **add `GET` request for Content Item**.
+        - `[[PREVIEW_URL]]` is the URL pointing to your preview environment.
+        - `[[APPROVE_BY_WEBHOOK_URL]]` is the unique URL obtained from Zapier in step **Approve review by webhook Zap**. 
 
 ## Synchronize comments for 3 Level workflow Zap.
 
@@ -250,3 +290,11 @@ output = {content_id: content_id, text: text};
 
 This Zap is almost exactly the same as the previous one, with the exception of different Trello that should be watched. If you want to synchronize the comments for each custom workflow, you need to create a different Zap for each one of those workflows separately. We'll skip this part for brevity.
 
+## 3 Level workflow for images Zap.
+
+Create a new Zap and call it '3 Level workflow for images'. This Zap handles the actual workflow we want to provide.
+
+It uses three steps:
+- watch for activity in Trello
+- run custom JavaScript
+- send custom `POST` request
