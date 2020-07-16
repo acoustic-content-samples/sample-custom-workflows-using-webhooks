@@ -96,6 +96,10 @@ This Zap uses multiple steps:
 
 - Navigate to the Acoustic Content and compose a new content item using of the content types we just created. Let's start with the 'Article (no approval)' content type. Populate the content item with some dummy data and create a new Review. In the Approvers section, pick the External Approver user we created in **Preparation**. 
 
+![04](./04.png)
+
+![05](./05.png)
+
 ### Extract data from webhook request
 
 - Add 'Code by Zapier' step.
@@ -215,6 +219,8 @@ Only continue if...
 
         For example, if the articles with ID 1234-5678 appears in the website under /articles/1234-5678 then the preview link could be:
         `preview.example.com/articles/1234-5678`, which means you need to combine the `preview.example.com/articles/` part with <2. Doc ID> from step **add `GET` request for Content Item**.
+
+![06](./06.png)
 
 - Trello offers so much more during this step, like setting a custom label, card position or due date.
 
