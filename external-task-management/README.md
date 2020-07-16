@@ -30,12 +30,18 @@ We will use multiple Zaps to handle the entire workflow from start to finish:
 
 1. In the Acoustic Content user iterface, go to Settings -> User management and add a new functional user as a Manager. Let's call this user External Approver. This user will be used for external communication with the Content API.
 
+![01](./01.png)
+
 2. Define custom workflows as Taxonomies. In the Acoustic Content user iterface go to Content model -> Taxonomies and Create taxonomy. In this example, we will call this 'Custom workflows'. Next, add subcategory for each custom workflow you want to provide. In our examples this is:
 - 3 Level workflow for images
 - 4 Level workflow for web site content
 - No approval required
 
+![02](./02.png)
+
 3. Use existing or create a new Content type and use Categories field, to tag this Content type with a specific workflow. This could be for example an 'Article (no approval)' Content type, with category 'No approval required' we defined before. We use this field to determine which custom workflow should run.
+
+![03](./03.png)
 
 #### Trello
 
