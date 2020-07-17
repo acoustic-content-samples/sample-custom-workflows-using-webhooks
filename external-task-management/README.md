@@ -38,14 +38,14 @@ We will use multiple Zaps to handle the entire workflow from start to finish:
 
 ![02](./02.png)
 
-3. Open an existing Content Type or create a new Content type. Use the Categories field to tag this Content Type with the workflow that should be used for Content of this type. This could be for example an 'Article (no approval)' Content type, with category 'No approval required' we defined before. We use this field to determine which custom workflow should run.
+3. Open an existing Content Type or create a new Content type. Use the Categories field to tag this Content Type with the workflow that should be used for Content of this type. This could be for example an 'Article (no approval)' Content type, with category 'No approval required' or 'Travel Article' with category '4 stage workflow' we defined before. We use this field to determine which custom workflow should run.
 
 ![03](./03.png)
 
 #### Trello
 
 1. Sign up to a free Trello account or use your existing Trello account.
-2. Create a new team. A personal board can not be used due to the limitations they have, which we will be highlighted later.
+2. Create a new team. A personal board can't be used due to some Trello limitations.
 3. Create a new board for each workflow that requires a Trello board for management. In our case, this will be '4 stage workflow'.
 
 ## Approve review by webhook Zap.
@@ -248,6 +248,8 @@ Only continue if...
         - `[[PREVIEW_URL]]` is the URL pointing to your preview environment.
         - `[[APPROVE_BY_WEBHOOK_URL]]` is the unique URL obtained from Zapier in step **Approve review by webhook Zap**. 
 
+The approver can see the preview live:  
+
 ![06](./06.png)
 
 ## Synchronize comments Zap.
@@ -397,7 +399,7 @@ Again, this step is similar to previous Email steps, but this time the email not
 - Add 'Email by Zapier' step in Zapier.
 - Select 'Send Outbound Email' action.
 - Under the 'Customize Outbound Email' provide the necessary data
-    - **To**: <2. Creator Email>.
+    - **To**: `<2. Creator Email>`.
     - **Subject**: Content approved - `<1. DocName>`.
     - **Body**: 
 
