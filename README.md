@@ -20,23 +20,27 @@ Demo videos are here https://youtu.be/T4x-y4IfMFA and https://youtu.be/2OgPEyh7X
 
 ## Create Slack notification when items are updated
 
-See: https://github.com/ibm-wch/sample-custom-workflows-using-webhooks/tree/master/slack-notification
+See: https://github.com/acoustic-content-samples/sample-custom-workflows-using-webhooks/tree/master/slack-notification
 
 ## Send an email to the approvers when a review is created
 
-See: https://github.com/ibm-wch/sample-custom-workflows-using-webhooks/tree/master/email-notification
+See: https://github.com/acoustic-content-samples/sample-custom-workflows-using-webhooks/tree/master/email-notification
 
 ## Create a Trello card to translate a content item
 
-See: https://github.com/ibm-wch/sample-custom-workflows-using-webhooks/tree/master/trello-card
+See: https://github.com/acoustic-content-samples/sample-custom-workflows-using-webhooks/tree/master/trello-card
 
 ## Check or expire content or assets on a schedule
 
-See: https://github.com/ibm-wch/sample-custom-workflows-using-webhooks/tree/master/check-expire-content
+See: https://github.com/acoustic-content-samples/sample-custom-workflows-using-webhooks/tree/master/check-expire-content
+
+## Create a custom workflow by integration Acoustic Content with a task management system
+
+See: https://github.com/acoustic-content-samples/sample-custom-workflows-using-webhooks/tree/master/external-task-management
 
 ## Going further
 
-These are just some examples of the custom workflows you can create using WCH Webhooks. They can be mixed and matched; for example, you can use a Trello card when an approval is required. Generally, a workflow contains multiple workflow states, with corresponding actions when entering these states. WCH content items have draft, approval, and published states. Use a tag to create an additional custom workflow state. For example "Translate" for awaiting translation, or "Check" for needs checking or "Expire" for pending removal from the website. These workflow actions are the actions that the webhook consumer uses when an item enters the state. 
+These are just some examples of the custom workflows you can create using Acoustic Content Webhooks. They can be mixed and matched; for example, you can use a Trello card when an approval is required. Generally, a workflow contains multiple workflow states, with corresponding actions when entering these states. WCH content items have draft, approval, and published states. Use a tag to create an additional custom workflow state. For example "Translate" for awaiting translation, or "Check" for needs checking or "Expire" for pending removal from the website. These workflow actions are the actions that the webhook consumer uses when an item enters the state. 
 
 Approval workflows are a common example of a workflow that frequently needs to be customised. Perhaps approval of new content items can be mandatory or optional, depending on the content type. Perhaps approval can be granted by a single user, or perhaps approval requires that _any_ of the selected users can approve. Perhaps it is sufficient that any two of the selected user approve the item or perhaps all of the selected user must approve. Perhaps the approval process is that content authors tag content with a category, and the approver is selected based on that category. Perhaps a 'multi-level' approval is required whereby a content creation team lead must approve, and then a user from the design team approves, before finally the site owner approves. All of these can be implemented using tags for the various stages, a task system such as Trello to assign and track the approvals required, and notification in the appropriate channels, such as email, Slack, SMS or mobile push.
 
