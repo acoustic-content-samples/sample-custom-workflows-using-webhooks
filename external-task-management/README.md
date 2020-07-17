@@ -411,6 +411,8 @@ Again, this step is similar to previous Email steps, but this time the email not
         ```
 
 ## Summary
-This samples shows how an entire approval process for Content can be managed externally. 
 
-Once set up, webhooks offer great flexibility to define custom workflows using existing tools. The example above is only scratching the surface. Possible scenarios include custom translation approval process, notifications for different stages via Slack/Email/SMS or creating content items as a result of some external action.
+This sample shows how a custom approval process can be set up by intergrating Content with a task management system.
+
+This approach offers great flexibility to create your own custom workflow according to your own requirements. The example above is only scratching the surface. Possible scenarios include creating a custom translation approval process for a multi-language website, notifications for different stages via Slack/Email/SMS, and complex approval requirements such as approver delegation and joint approval.
+
