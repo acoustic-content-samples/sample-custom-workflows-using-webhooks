@@ -178,23 +178,23 @@ For this particular workflow, where external approval is no required, all we hav
 
 At this point, the Content Item will be immediately approved in Acoustic Content user interface.
 
-### (Path B - 3 Level workflow for images) - Setup
+### (Path B - 3 stage workflow for images) - Setup
 
-- Step into the Path B and rename it. Let's call this '3 Level workflow for images'
+- Step into the Path B and rename it. Let's call this '3 stage workflow for images'
 - Under the 'Rules Setup & Testing' section specify when this particular path should be executed. In our case, this will look like this:
 
 Only continue if...
 
-`<category>` -> (Text) Exactly Matches -> 3 Level workflow for images
+`<category>` -> (Text) Exactly Matches -> 3 stage workflow for images
 
-### (Path B - 3 Level workflow for images) - Find board in Trello
+### (Path B - 3 stage workflow for images) - Find board in Trello
 
 - Add 'Trello' step in Zapier.
 - Select 'Find Board' action.
 - Provide Trello credentials or pick already connected Trello account.
-- Under the 'Customize Board' select the Trello team you created in the **Preparatio - Trello** step, and provide the right Board Name - in our case this will be '3 Level workflow for images'. Use Zapier's test feature to make sure that it is able to find the correct board in your Trello team.
+- Under the 'Customize Board' select the Trello team you created in the **Preparatio - Trello** step, and provide the right Board Name - in our case this will be '3 stage workflow for images'. Use Zapier's test feature to make sure that it is able to find the correct board in your Trello team.
 
-### (Path B - 3 Level workflow for images) - Create Card in Trello
+### (Path B - 3 stage workflow for images) - Create Card in Trello
 
 - Add another 'Trello' step in Zapier.
 - Select 'Create Card' action.
@@ -229,7 +229,7 @@ Only continue if...
 
 - Trello offers many more possibilities during this step, like setting a custom label, card position or due date.
 
-### (Path B - 3 Level workflow for images) - Send Email notification
+### (Path B - 3 stage workflow for images) - Send Email notification
 
 - Add 'Email by Zapier' step in Zapier.
 - Select 'Send Outbound Email' action.
@@ -252,9 +252,9 @@ Only continue if...
 
 ![06](./06.png)
 
-## Synchronize comments for 3 Level workflow Zap.
+## Synchronize comments for 3 stage workflow Zap.
 
-Create a new Zap and call it 'Synchronize comments for 3 Level workflow'. This Zap provides the ability to synchronize any comments made on the Trello card, with the comments section for Content Item in Acoustic Content user interface. 
+Create a new Zap and call it 'Synchronize comments for 3 stage workflow'. This Zap provides the ability to synchronize any comments made on the Trello card, with the comments section for Content Item in Acoustic Content user interface. 
 
 ![Trello comments](./Trello_comments.png)
 
@@ -268,7 +268,7 @@ This Zap uses three steps:
 - Add 'Trello' step in Zapier.
 - Select 'New Activity' action.
 - Provide Trello credentials or pick an already connected Trello account.
-- Under the 'Customize Activity' select the activity type and board that should be watched. In out case this will be activity of type 'Comment Added to Card' and board '3 Level workflow for images'.
+- Under the 'Customize Activity' select the activity type and board that should be watched. In out case this will be activity of type 'Comment Added to Card' and board '3 stage workflow for images'.
 
 ### Extract data from Trello card
 
@@ -311,9 +311,9 @@ output = {content_id: content_id, text: text};
 
 This Zap is almost exactly the same as the previous one, with the exception of a different Trello board that should be watched. If you want to synchronize the comments for each custom workflow, you need to create a different Zap for each one of those workflows separately. Repeat the above step with the different Trello board to complete this.
 
-## 3 Level workflow/Step 1 Zap.
+## 3 stage workflow/Step 1 Zap.
 
-Create a new Zap and call it '3 Level workflow/Step 1'. This Zap handles the first part of the actual workflow we want to provide.
+Create a new Zap and call it '3 stage workflow/Step 1'. This Zap handles the first part of the actual workflow we want to provide.
 
 ![Trello_2](./Trello_2.png)
 
@@ -326,7 +326,7 @@ It uses only two steps:
 - Add 'Trello' step in Zapier.
 - Select 'Card Moved to List' action.
 - Provide Trello credentials or pick an already connected Trello account.
-- Under the 'Customize Card Moved' select the board that should be watched and the List where the card was moved to. In out case this will be '3 Level workflow' board and 'Awaiting final sign off' list.
+- Under the 'Customize Card Moved' select the board that should be watched and the List where the card was moved to. In out case this will be '3 stage workflow' board and 'Awaiting final sign off' list.
 
 ### Send Email notification
 
@@ -351,9 +351,9 @@ This step is very similar to the previous Email workflow.
         - `[[PREVIEW_URL]]` is the URL pointing to your preview environment.
         - `[[APPROVE_BY_WEBHOOK_URL]]` is the unique URL obtained from Zapier in step **Approve review by webhook Zap**. 
 
-## 3 Level workflow/Step 2 Zap.
+## 3 stage workflow/Step 2 Zap.
 
-Create a new Zap and call it '3 Level workflow/Step 2'. This Zap handles the second part of the actual workflow we want to provide.
+Create a new Zap and call it '3 stage workflow/Step 2'. This Zap handles the second part of the actual workflow we want to provide.
 
 ![Trello_3](./Trello_3.png)
 
