@@ -34,7 +34,7 @@ See: https://github.com/acoustic-content-samples/sample-custom-workflows-using-w
 
 See: https://github.com/acoustic-content-samples/sample-custom-workflows-using-webhooks/tree/master/check-expire-content
 
-## Create a custom workflow by integration Acoustic Content with a task management system
+## Create a custom workflow by integrating Acoustic Content with a task management system
 
 See: https://github.com/acoustic-content-samples/sample-custom-workflows-using-webhooks/tree/master/external-task-management
 
