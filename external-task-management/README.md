@@ -20,10 +20,9 @@ We will use multiple Zaps to handle the entire workflow from start to finish:
 
 1. Approve the review using a webhook
 2. Initialize custom workflow
-3. Synchronize comments for 3 stage workflow for images
-4. Synchronize comments for 4 stage workflow for web site content
-5. 3 stage workflow for images
-6. 4 stage workflow for web site content
+3. Synchronize comments using webhooks
+4. 4 stage workflow/Step 1
+5. 4 stage workflow/Step 2
 
 ## Preparation
 
@@ -34,8 +33,7 @@ We will use multiple Zaps to handle the entire workflow from start to finish:
 ![01](./01.png)
 
 2. Define the custom workflows as Taxonomies. In the Acoustic Content user iterface go to Content model -> Taxonomies and Create taxonomy. In this example, we will call this 'Custom workflows'. Next, add a category for each custom workflow you want to provide. In our examples this is:
-- 3 stage workflow for images
-- 4 stage workflow for web site content
+- 4 stage workflow
 - No approval required
 
 ![02](./02.png)
@@ -48,7 +46,7 @@ We will use multiple Zaps to handle the entire workflow from start to finish:
 
 1. Sign up to a free Trello account or use your existing Trello account.
 2. Create a new team. A personal board can not be used due to the limitations they have, which we will be highlighted later.
-3. Create a new board for each workflow that requires a Trello board for management. In our case, this will be '3 stage workflow for images' and '4 stage workflow for web site content'.
+3. Create a new board for each workflow that requires a Trello board for management. In our case, this will be '4 stage workflow'.
 
 ## Approve review by webhook Zap.
 
@@ -178,23 +176,23 @@ For this particular workflow, where external approval is no required, all we hav
 
 At this point, the Content Item will be immediately approved in Acoustic Content user interface.
 
-### (Path B - 3 stage workflow for images) - Setup
+### (Path B - 4 stage workflow) - Setup
 
-- Step into the Path B and rename it. Let's call this '3 stage workflow for images'
+- Step into the Path B and rename it. Let's call this '4 stage workflow'
 - Under the 'Rules Setup & Testing' section specify when this particular path should be executed. In our case, this will look like this:
 
 Only continue if...
 
-`<category>` -> (Text) Exactly Matches -> 3 stage workflow for images
+`<category>` -> (Text) Exactly Matches -> 4 stage workflow
 
-### (Path B - 3 stage workflow for images) - Find board in Trello
+### (Path B - 4 stage workflow) - Find board in Trello
 
 - Add 'Trello' step in Zapier.
 - Select 'Find Board' action.
 - Provide Trello credentials or pick already connected Trello account.
-- Under the 'Customize Board' select the Trello team you created in the **Preparatio - Trello** step, and provide the right Board Name - in our case this will be '3 stage workflow for images'. Use Zapier's test feature to make sure that it is able to find the correct board in your Trello team.
+- Under the 'Customize Board' select the Trello team you created in the **Preparatio - Trello** step, and provide the right Board Name - in our case this will be '4 stage workflow'. Use Zapier's test feature to make sure that it is able to find the correct board in your Trello team.
 
-### (Path B - 3 stage workflow for images) - Create Card in Trello
+### (Path B - 4 stage workflow) - Create Card in Trello
 
 - Add another 'Trello' step in Zapier.
 - Select 'Create Card' action.
@@ -229,7 +227,7 @@ Only continue if...
 
 - Trello offers many more possibilities during this step, like setting a custom label, card position or due date.
 
-### (Path B - 3 stage workflow for images) - Send Email notification
+### (Path B - 4 stage workflow) - Send Email notification
 
 - Add 'Email by Zapier' step in Zapier.
 - Select 'Send Outbound Email' action.
@@ -252,9 +250,9 @@ Only continue if...
 
 ![06](./06.png)
 
-## Synchronize comments for 3 stage workflow Zap.
+## Synchronize comments Zap.
 
-Create a new Zap and call it 'Synchronize comments for 3 stage workflow'. This Zap provides the ability to synchronize any comments made on the Trello card, with the comments section for Content Item in Acoustic Content user interface. 
+Create a new Zap and call it 'Synchronize comments'. This Zap provides the ability to synchronize any comments made on the Trello card, with the comments section for Content Item in Acoustic Content user interface. 
 
 ![Trello comments](./Trello_comments.png)
 
@@ -268,7 +266,7 @@ This Zap uses three steps:
 - Add 'Trello' step in Zapier.
 - Select 'New Activity' action.
 - Provide Trello credentials or pick an already connected Trello account.
-- Under the 'Customize Activity' select the activity type and board that should be watched. In out case this will be activity of type 'Comment Added to Card' and board '3 stage workflow for images'.
+- Under the 'Customize Activity' select the activity type and board that should be watched. In out case this will be activity of type 'Comment Added to Card' and board '4 stage workflow'.
 
 ### Extract data from Trello card
 
@@ -307,13 +305,9 @@ output = {content_id: content_id, text: text};
 
 - add Acoustic Content credentials for the user External Approver under the **Basic Auth** section.
 
-## Synchronize comments for 4 Level workflow Zap.
+## 4 stage workflow/Step 1 Zap.
 
-This Zap is almost exactly the same as the previous one, with the exception of a different Trello board that should be watched. If you want to synchronize the comments for each custom workflow, you need to create a different Zap for each one of those workflows separately. Repeat the above step with the different Trello board to complete this.
-
-## 3 stage workflow/Step 1 Zap.
-
-Create a new Zap and call it '3 stage workflow/Step 1'. This Zap handles the first part of the actual workflow we want to provide.
+Create a new Zap and call it '4 stage workflow/Step 1'. This Zap handles the first part of the actual workflow we want to provide.
 
 ![Trello_2](./Trello_2.png)
 
@@ -326,7 +320,7 @@ It uses only two steps:
 - Add 'Trello' step in Zapier.
 - Select 'Card Moved to List' action.
 - Provide Trello credentials or pick an already connected Trello account.
-- Under the 'Customize Card Moved' select the board that should be watched and the List where the card was moved to. In out case this will be '3 stage workflow' board and 'Awaiting final sign off' list.
+- Under the 'Customize Card Moved' select the board that should be watched and the List where the card was moved to. In out case this will be '4 stage workflow' board and 'Awaiting final sign off' list.
 
 ### Send Email notification
 
@@ -351,9 +345,9 @@ This step is very similar to the previous Email workflow.
         - `[[PREVIEW_URL]]` is the URL pointing to your preview environment.
         - `[[APPROVE_BY_WEBHOOK_URL]]` is the unique URL obtained from Zapier in step **Approve review by webhook Zap**. 
 
-## 3 stage workflow/Step 2 Zap.
+## 4 stage workflow/Step 2 Zap.
 
-Create a new Zap and call it '3 stage workflow/Step 2'. This Zap handles the second part of the actual workflow we want to provide.
+Create a new Zap and call it '4 stage workflow/Step 2'. This Zap handles the second part of the actual workflow we want to provide.
 
 ![Trello_3](./Trello_3.png)
 
@@ -368,7 +362,7 @@ It uses four steps:
 - Add 'Trello' step in Zapier.
 - Select 'Card Moved to List' action.
 - Provide Trello credentials or pick already connected Trello account.
-- Under the 'Customize Card Moved' select the board that should be watched and the List where the card was moved to. In out case this will be '3 Level workflow' board and 'Approved' list.
+- Under the 'Customize Card Moved' select the board that should be watched and the List where the card was moved to. In out case this will be '4 stage workflow' board and 'Approved' list.
 
 ### Extract data from Trello card
 
@@ -413,3 +407,8 @@ Again, this step is similar to previous Email steps, but this time the email not
         your content has been approved. 
         View card in Trello: <1. Card URL>
         ```
+
+## Summary
+This samples shows how an entire approval process for Content can be managed externally. 
+
+Once set up, webhooks offer great flexibility to define custom workflows using existing tools. The example above is only scratching the surface. Possible scenarios include custom translation approval process, notifications for different stages via Slack/Email/SMS or creating content items as a result of some external action.
