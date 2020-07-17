@@ -1,22 +1,22 @@
 ## Set up a custom workflow by integrating Acoustic Content with a task management system
 
-This is a tutorial about creating a custom workflow that can contain multiple approval stages by integrating with Trello. We use Zapier to coordinate the two systems. The same approach can be used to set up an custom workflow with any other task management tool such as JIRA or Zenhub etc.
+This is a tutorial about creating a custom workflow that can contain multiple approval stages by integrating with Trello. We use Zapier (https://zapier.com/) to coordinate the two systems. The same approach can be used to set up an custom workflow with any other task management tool such as JIRA or Zenhub etc.
 
 For background information on all the tutorials, see: https://github.com/ibm-wch/sample-custom-workflows-using-webhooks.
 
 ## Workflow overview
 
-The overall workflow looks like this:
+We will set up a 'four stage' workflow. The workflow looks like this:
 
 1. Content Admin defines the workflow.
-2. Content Editor creates draft items and submits them for review.
-3. First line approver approves the items.
-4. Second line approver approves the items.
-5. Content Editor publishes the items once fully approved.
+2. Content Editor creates draft items and submits them for review (workflow stage 1).
+3. First line approver approves the items (workflow stage 2).
+4. Second line approver approves the items (workflow stage 3).
+5. Content Editor publishes the items once fully approved (workflow stage 4).
 
 ## Zaps overview
 
-We will use multiple Zaps to handle the entire workflow from start to finish:
+A Zap is an action in the Zapier system. We will create the following Zaps to handle the entire workflow from start to finish:
 
 1. Approve the review using a webhook
 2. Initialize custom workflow
