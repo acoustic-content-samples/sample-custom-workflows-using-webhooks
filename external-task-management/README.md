@@ -11,7 +11,7 @@ The overall workflow looks like this:
 1. Content Admin defines the workflow.
 2. Content Editor creates draft items and submits them for review.
 3. First line approver approves the items.
-4. Second linke approver approves the items.
+4. Second line approver approves the items.
 5. Content Editor publishes the items once fully approved.
 
 ## Zaps overview
