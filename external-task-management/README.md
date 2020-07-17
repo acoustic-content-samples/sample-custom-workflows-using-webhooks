@@ -75,7 +75,7 @@ Create a new Zap and call it 'Initialize custom workflow'.
 
 This Zap uses multiple steps:
 - catch the webhook
-- extract `docId` and `approverEmail` data from the webhook request
+- extract `docId`, `approverEmail` and `creatorEmail` data from the webhook request
 - fire API request to `GET` the neccessary data from the Content API
 - extract `category` from the content item
 - depending on the specified `category`, decide if the item should be immediately approved or should fall into one of the specified workflow
@@ -104,7 +104,7 @@ This Zap uses multiple steps:
 
 - Add 'Code by Zapier' step.
 - Select 'Run JavaScript'.
-- Set the input data. Extract the fields from the webhook that will be needed in the next steps. In this example, we'll extract the fields `<docItems>` and `<docApprovers>`. So, enter `items` as the input data field name, and select the `Doc Items` variable from the webhook. Repeat this for `<docApprovers>`.
+- Set the input data. Extract the fields from the webhook that will be needed in the next steps. In this example, we'll extract the fields `<docItems>` and `<docApprovers>`. So, enter `items` as the input data field name, and select the `Doc Items` variable from the webhook. Repeat this for `<docApprovers>` (called as `approvers`).
 - Add the following code code:
 
 ```js
@@ -207,10 +207,12 @@ Only continue if...
         review_id: <1. Doc ID>
         approve_link: [[APPROVE_BY_WEBHOOK_URL]]?id=<1. Doc ID>
         preview_link: [[PREVIEW_URL]]/<2. Doc ID>
+        creator_email: <1. Doc Creator Email>
         ```
 
         - `<1. Doc ID>` is the ID from step **Catch the webhook**.
         - `<2. Doc ID>` is the ID from step **add `GET` request for Content Item**.
+        - `<1. Doc Creator Email>` is the email adress from step **Catch the webhook**.
         - `[[APPROVE_BY_WEBHOOK_URL]]` is the unique URL obtained from Zapier in step **Approve review by webhook Zap**. 
         - `[[PREVIEW_URL]]` is the URL pointing to your preview environment. See note below.
 
@@ -220,7 +222,7 @@ Only continue if...
         For example, if the articles with ID 1234-5678 appears in the website under /articles/1234-5678 then the preview link could be:
         `preview.example.com/articles/1234-5678`, which means you need to combine the `preview.example.com/articles/` part with <2. Doc ID> from step **add `GET` request for Content Item**.
 
-![06](./06.png)
+![Trello01](./Trello_1.png)
 
 - Trello offers so much more during this step, like setting a custom label, card position or due date.
 
@@ -245,9 +247,13 @@ Only continue if...
         - `[[PREVIEW_URL]]` is the URL pointing to your preview environment.
         - `[[APPROVE_BY_WEBHOOK_URL]]` is the unique URL obtained from Zapier in step **Approve review by webhook Zap**. 
 
+![06](./06.png)
+
 ## Synchronize comments for 3 Level workflow Zap.
 
 Create a new Zap and call it 'Synchronize comments for 3 Level workflow'. This Zap provides the ability to synchronize any comments made on the Trello card, with the comments section for Content Item in Acoustic Content user interface. 
+
+![Trello comments](./Trello_comments.png)
 
 This Zap uses three steps:
 - watch for activity in Trello
@@ -302,11 +308,105 @@ output = {content_id: content_id, text: text};
 
 This Zap is almost exactly the same as the previous one, with the exception of different Trello that should be watched. If you want to synchronize the comments for each custom workflow, you need to create a different Zap for each one of those workflows separately. We'll skip this part for brevity.
 
-## 3 Level workflow for images Zap.
+## 3 Level workflow/Step 1 Zap.
 
-Create a new Zap and call it '3 Level workflow for images'. This Zap handles the actual workflow we want to provide.
+Create a new Zap and call it '3 Level workflow/Step 1'. This Zap handles the first part of the actual workflow we want to provide.
 
-It uses three steps:
-- watch for activity in Trello
-- run custom JavaScript
-- send custom `POST` request
+![Trello_2](./Trello_2.png)
+
+It uses only two steps:
+- watch for 'Card moved to List' action in Trello
+- send an email to notify the approvers about new review awaiting
+
+### Card Moved to List in Trello
+
+- Add 'Trello' step in Zapier.
+- Select 'Card Moved to List' action.
+- Provide Trello credentials or pick already connected Trello account.
+- Under the 'Customize Card Moved' select the board that should be watched and the List where the card was moved to. In out case this will be '3 Level workflow' board and 'Awaiting final sign off' list.
+
+### Send Email notification
+
+This step is very similar to previous Email workflow.
+
+- Add 'Email by Zapier' step in Zapier.
+- Select 'Send Outbound Email' action.
+- Under the 'Customize Outbound Email' provide the necessary data
+    - **To**: Specify the email address of second-line approvers.
+    - **Subject**: Item awaiting approval - `<1. DocName>`.
+    - **Body**: 
+
+        ```
+        Please review this changes:
+        Preview link: [[PREVIEW_URL]]/<2. Doc ID>
+        Approve: [[APPROVE_BY_WEBHOOK_URL]]?id=<1. Doc ID>
+        View in Trello: <Path B - 3. URL>
+        ```
+
+        - `<1. Doc ID>` is the ID from step **Catch the webhook**.
+        - `<2. Doc ID>` is the ID from step **add `GET` request for Content Item**.
+        - `[[PREVIEW_URL]]` is the URL pointing to your preview environment.
+        - `[[APPROVE_BY_WEBHOOK_URL]]` is the unique URL obtained from Zapier in step **Approve review by webhook Zap**. 
+
+## 3 Level workflow/Step 2 Zap.
+
+Create a new Zap and call it '3 Level workflow/Step 2'. This Zap handles the second part of the actual workflow we want to provide.
+
+![Trello_3](./Trello_3.png)
+
+It uses four steps:
+- watch for 'Card moved to List' action in Trello
+- run custom JavaScript code
+- send `POST` request to Content API
+- send an email to notify the content editor about the approved content
+
+### Card Moved to List in Trello
+
+- Add 'Trello' step in Zapier.
+- Select 'Card Moved to List' action.
+- Provide Trello credentials or pick already connected Trello account.
+- Under the 'Customize Card Moved' select the board that should be watched and the List where the card was moved to. In out case this will be '3 Level workflow' board and 'Approved' list.
+
+### Extract data from Trello card
+
+- Add 'Code by Zapier' step.
+- Select 'Run JavaScript'.
+- Set the input data. Extract the field from the Trello card that will be needed in the next step. This time, we'll extract the field `<cardDesc>`. So, enter `desc` as the input data field name, and select the `Card Desc` variable.
+- Add the following code code:
+
+```js
+const dataArr = inputData.desc.split('\n');
+const review_id = dataArr[1].split(' ')[1];
+const creator_email = dataArr[4].split(' ')[1];
+
+output = {review_id: review_id, creator_email: creator_email};
+```
+
+### Add `POST` request to approve the content item in Acoustic
+
+- Add 'Webhooks by Zapier' step.
+- Select 'Custom Request'.
+- Set the url to `[[API_URL]]>/authoring/v1/review/<2. Review Id>/approve`, where <2. Review Id> is the `review_id` parameter from previous step. 
+- add Acoustic Content credentials for the user External Approver under the **Basic Auth** section.
+
+As you can see, the content item is visible as 'Approved' in Acoustic Content. 
+
+![07](./07.png)
+
+### Send Email notification
+
+Again, this step is similar to previous Email steps, but this time the email notifies the content editor about the approved item.
+
+- Add 'Email by Zapier' step in Zapier.
+- Select 'Send Outbound Email' action.
+- Under the 'Customize Outbound Email' provide the necessary data
+    - **To**: <2. Creator Email>.
+    - **Subject**: Content approved - `<1. DocName>`.
+    - **Body**: 
+
+        ```
+        Hello,
+
+        your content has been approved. 
+        View card in Trello: <1. Card URL>
+        ```
