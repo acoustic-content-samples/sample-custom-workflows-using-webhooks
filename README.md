@@ -10,9 +10,9 @@ https://help.goacoustic.com/hc/en-us/articles/360039881833-Creating-custom-workf
 
 In particular, note that a user nees to enable the WCH Webhooks UI needs in order to set up WCH Webhooks, and needs to be an admin to do so.
 
-To make use of WCH Webhooks, you need a Webhook consumer. The consumer listens for webhook events and performs an action based on those events. For complete custom control and flexibility, the webhook consumer can be a service running on a cloud provider such as the IBM Cloud, Amazon AWS, Microsoft Azure, or Google GCP. These options require a developer who can build and deploy a service, such as a JavaScript node app. Function as a service solutions like Open Whisk on the IBM Cloud (https://console.bluemix.net/openwhisk/) and AWS lambda are also well suited to such integration and data processing solutions.
+To make use of WCH Webhooks, you need a Webhook consumer. The consumer listens for webhook events and performs an action based on those events. For complete custom control and flexibility, the webhook consumer can be a service running on a cloud provider such as the Amazon AWS, Microsoft Azure, or Google GCP. These options require a developer who can build and deploy a service, such as a JavaScript node app. Function as a service solutions like AWS lambda are also well suited to such integration and data processing solutions.
 
-It's also possible to use a no-code or low-code cloud platforms such as Zapier, Tray.io, or IFTTT. Zapier has a free plan, is the easy to get started, and is specifically designed for system integration. For that reason, the following examples use Zapier.
+It's also possible to use a no-code or low-code cloud iPaas platform such as Zapier, Tray.io, or IFTTT. Zapier has a free plan, is the easy to get started, and is specifically designed for integrating systems with little to no coding required. For that reason, the following examples use Zapier.
 
 ## Demo videos
 
